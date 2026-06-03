@@ -54,7 +54,7 @@ class Analisador {
                 else if (leitura.eof())
                     return Token::EOF_TOKEN;
                 else {
-                    printf("Erro léxico: caractere '%c' não reconhecido na linha %d\n", leitura.getCaractereAtual(), leitura.getLinha());
+                    printf("Erro léxico: caractere encontrado: %c \n Era (m) esperado (s): ", leitura.getCaractereAtual()); //COMO IMPRIMIR O CARACTERE ENCONTRADO E O QUE ERA ESPERADO?
                     limpaString();
                     leitura.leProxCaractere();
                 }

@@ -17,7 +17,6 @@ class Leitura {
     private:
         std::ifstream arquivo;
         char caractereAtual = EOF_CHAR; //inicializa com EOF_CHAR para indicar que ainda não leu nenhum caractere
-        int linha = 1;
 
     public:
         bool abrirArquivo(std::string& nomeArquivo){ //& para passar por referência
@@ -43,8 +42,6 @@ class Leitura {
             char caractere;
             if (arquivo.get(caractere)){ // Lê o próximo caractere do arquivo
                 this->caractereAtual = caractere; // Armazena o caractere atual
-                if (caractere == '\n')
-                    this->linha++;
             }
             else
                 this->caractereAtual = EOF_CHAR; //não conseguiu ler == fim do arquivo
@@ -64,11 +61,6 @@ class Leitura {
         //retorna caractere atual
         char getCaractereAtual(){
             return this->caractereAtual;
-        }
-
-        //retorna linha atual
-        int getLinha(){
-            return this->linha;
         }
 
         bool eof(){
