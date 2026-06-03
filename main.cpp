@@ -1,8 +1,7 @@
 #include <iostream>
 #include <string>
-#include "Analisador.cpp"   // inclui toda a implementação
+#include "Analisador.cpp"
 
-// Função auxiliar para converter Token para string
 std::string tokenToString(Token t) {
     switch (t) {
         case Token::NUM: return "NUM";
@@ -22,14 +21,13 @@ std::string tokenToString(Token t) {
     }
 }
 
-int main(int argc, char* argv[]) {
-    if (argc != 2) {
-        std::cerr << "Uso: " << argv[0] << " <arquivo_entrada>" << std::endl;
-        return 1;
-    }
+int main() {
+    std::string nomeArquivo;
+    std::cout << "Digite o nome do arquivo de entrada: (com o .txt)";
+    std::cin >> nomeArquivo;
 
     try {
-        Analisador analisador(argv[1]);
+        Analisador analisador(nomeArquivo);
 
         Token tok;
         do {
@@ -41,7 +39,7 @@ int main(int argc, char* argv[]) {
     }
     catch (const std::exception& e) {
         std::cerr << "Erro: " << e.what() << std::endl;
-        return 2;
+        return 1;
     }
 
     return 0;
