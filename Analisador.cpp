@@ -28,6 +28,9 @@ class Analisador {
         }
 
         Token s0(){
+
+            leitura.getCaractereAtual();
+
             while (leitura.caractereAtualEsta(VAZIOS))
                 leitura.leProxCaractere();
 
