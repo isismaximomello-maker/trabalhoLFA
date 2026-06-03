@@ -1,10 +1,5 @@
-#include <fstream> 
+# include <stdio.h>
 
 int main() {
-    std::ifstream arquivo("entrada.txt");
-
-    if (arquivo.fail()){
-        printf("Erro ao abrir o arquivo.\n");
-        return 1;
-    }
+    return 0;
 }
