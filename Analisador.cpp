@@ -24,31 +24,30 @@ class Analisador {
         }
 
         Token s0(){
-            while (leitura.caractereAtualEsta(VAZIOS)){
+            while (leitura.caractereAtualEsta(VAZIOS))
                 leitura.leProxCaractere();
 
-                if (leitura.caractereAtualEsta(DIGITOS))
-                    s1();
-                else if (leitura.caractereAtualEsta(LETRAS))
-                    s2();
-                else if (leitura.caractereAtualEsta(OPERADORES))
-                    s3();
-                else if (leitura.caractereAtualEsta(P1))
-                    s4();
-                else if (leitura.caractereAtualEsta(P2))
-                    s5();
-                else if (leitura.caractereAtualEsta(Col1))  
-                    s6();
-                else if (leitura.caractereAtualEsta(Col2))  
-                    s7();
-                else if (leitura.caractereAtualEsta(Cha1))  
-                    s8();
-                else if (leitura.caractereAtualEsta(Cha2))  
-                    s9();
-                else if (leitura.eof())
-                    return Token::EOF_TOKEN;
-                
-            }
+            if (leitura.caractereAtualEsta(DIGITOS))
+                s1();
+            else if (leitura.caractereAtualEsta(LETRAS))
+                s2();
+            else if (leitura.caractereAtualEsta(OPERADORES))
+                s3();
+            else if (leitura.caractereAtualEsta(P1))
+                s4();
+            else if (leitura.caractereAtualEsta(P2))
+                s5();
+            else if (leitura.caractereAtualEsta(Col1))  
+                s6();
+            else if (leitura.caractereAtualEsta(Col2))  
+                s7();
+            else if (leitura.caractereAtualEsta(Cha1))  
+                s8();
+            else if (leitura.caractereAtualEsta(Cha2))  
+                s9();
+            
+            else if (leitura.eof())
+                return Token::EOF_TOKEN;
 
             erroLexico(leitura.getCaractereAtual(), DIGITOS + LETRAS + OPERADORES + P1 + P2 + Col1 + Col2 + Cha1 + Cha2);
         }
