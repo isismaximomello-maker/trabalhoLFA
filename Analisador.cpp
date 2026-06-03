@@ -71,7 +71,7 @@ class Analisador {
         }
 
         Token s1(){
-           // leitura.leProxCaractere(); //le o proximo
+       
 
             while (leitura.caractereAtualEsta(DIGITOS)){
                 leitura.leProxCaractere();
@@ -89,7 +89,7 @@ class Analisador {
         }
 
         Token s2(){
-            leitura.leProxCaractere();
+       
 
             while (leitura.caractereAtualEsta(DIGITOS + LETRAS + UNDERLINE)){ //concatena todas os conjuntos de caracteres válidos para variável
                 leitura.leProxCaractere();
