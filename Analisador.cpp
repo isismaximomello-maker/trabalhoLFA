@@ -28,7 +28,8 @@ class Analisador {
         }
 
         void erroLexico(char encontrado, const std::string esperado){
-            printf("\nErro léxico: caractere encontrado: %c \nEra (m) esperado (s): %s", encontrado, esperado.c_str());
+            printf("\nErro léxico: caractere encontrado: %c \nEra(m) esperado(s): %s\n", encontrado, esperado.c_str());
+            exit(1);
         }
 
 
@@ -71,21 +72,21 @@ class Analisador {
         }
 
         Token s1(){
-       
 
             while (leitura.caractereAtualEsta(DIGITOS)){
                 leitura.leProxCaractere();
             }
-            if (leitura.caractereAtualEsta(VAZIOS)|| leitura.eof()){ //caso de espaço, enter e tab
+            if (leitura.caractereAtualEsta(VAZIOS)|| leitura.eof()) //caso de espaço, enter e tab
                 return Token::NUM;
 
-            } else { //caso de erro
-                erroLexico(leitura.getCaractereAtual(), DIGITOS);
-            }
-            
-            //ultimo caso == EOF -> só retorna
+            char err = leitura.getCaractereAtual();
+
+            leitura.leProxCaractere();
+
+            erroLexico(err, DIGITOS);
 
             return Token::NUM;
+
         }
 
         Token s2(){
