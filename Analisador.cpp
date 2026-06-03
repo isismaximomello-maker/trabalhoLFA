@@ -17,23 +17,19 @@ Analisador
 class Analisador {
     protected:
         Leitura leitura;
-        std::string lexema;
+        char c;
 
     public:
-        void limpaString(){
-            lexema = ""; //limpa lexema para montar o próximo
-        }
 
-        std::string getLexema(){
-            return this->lexema;
+        void erroLexico(char encontrado, const std::string esperado){
+            printf("Erro léxico: caractere encontrado: %c \n Era (m) esperado (s): %s\n", encontrado, esperado);
         }
 
         Token s0(){
             while (leitura.caractereAtualEsta(VAZIOS)){
-
                 leitura.leProxCaractere();
-            }
-            if (leitura.caractereAtualEsta(DIGITOS))
+
+                if (leitura.caractereAtualEsta(DIGITOS))
                     s1();
                 else if (leitura.caractereAtualEsta(LETRAS))
                     s2();
@@ -53,65 +49,71 @@ class Analisador {
                     s9();
                 else if (leitura.eof())
                     return Token::EOF_TOKEN;
-                else {
-                    printf("Erro léxico: caractere encontrado: %c \n Era (m) esperado (s): ", leitura.getCaractereAtual()); //COMO IMPRIMIR O CARACTERE ENCONTRADO E O QUE ERA ESPERADO?
-                    limpaString();
-                    leitura.leProxCaractere();
-                }
+                
+            }
+
+            erroLexico(leitura.getCaractereAtual(), DIGITOS + LETRAS + OPERADORES + P1 + P2 + Col1 + Col2 + Cha1 + Cha2);
         }
 
         Token s1(){
+            leitura.leProxCaractere(); //le o proximo
 
             while (leitura.caractereAtualEsta(DIGITOS)){
-                lexema = lexema + leitura.getCaractereAtual(); //adiciona caractere atual ao lexema
                 leitura.leProxCaractere();
             }
-            limpaString();
+            if (leitura.caractereAtualEsta(VAZIOS)){ //caso de espaço, enter e tab
+                return Token::NUM;
+
+            } else { //caso de erro
+                erroLexico(leitura.getCaractereAtual(), DIGITOS);
+            }
+            
+            //ultimo caso == EOF -> só retorna
+
             return Token::NUM;
         }
 
         Token s2(){
-
+            leitura.leProxCaractere();
+            
             while (leitura.caractereAtualEsta(DIGITOS + LETRAS + UNDERLINE)){ //concatena todas os conjuntos de caracteres válidos para variável
-                lexema = lexema + leitura.getCaractereAtual(); //adiciona caractere atual ao lexema
                 leitura.leProxCaractere();
             }
-            limpaString();
+            if (leitura.caractereAtualEsta(VAZIOS)){ //caso de espaço, enter e tab
+                return Token::VAR;
+
+            } else {
+                erroLexico(leitura.getCaractereAtual(), DIGITOS + LETRAS + UNDERLINE);
+            }
+
             return Token::VAR;
         }
 
         Token s3(){
-            limpaString();
             return Token::OPB;
         }
 
         Token s4(){
-            limpaString();
             return Token::ABREP;
         }
 
         Token s5(){
-            limpaString();
             return Token::FECHAP;
         }
 
         Token s6(){
-            limpaString();
             return Token::ABRECO;
         }
 
         Token s7(){
-            limpaString();
             return Token::FECHACO;
         }
 
         Token s8(){
-            limpaString();
             return Token::ABRECH;
         }
 
         Token s9(){
-            limpaString();
             return Token::FECHACH;
         }
 };
