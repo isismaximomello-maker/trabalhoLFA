@@ -23,6 +23,10 @@ class Analisador {
             printf("Erro léxico: caractere encontrado: %c \n Era (m) esperado (s): %s\n", encontrado, esperado);
         }
 
+        Token iniciarMaquinaDeMoore(){
+            return s0();
+        }
+
         Token s0(){
             while (leitura.caractereAtualEsta(VAZIOS))
                 leitura.leProxCaractere();
