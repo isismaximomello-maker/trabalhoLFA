@@ -1,5 +1,3 @@
-#include <iostream>
-#include <fstream>
 #include <string>
 #include "Constantes.h"
 #include "Leitura.cpp"
@@ -75,7 +73,7 @@ class Analisador {
 
         Token s2(){
             leitura.leProxCaractere();
-            
+
             while (leitura.caractereAtualEsta(DIGITOS + LETRAS + UNDERLINE)){ //concatena todas os conjuntos de caracteres válidos para variável
                 leitura.leProxCaractere();
             }
