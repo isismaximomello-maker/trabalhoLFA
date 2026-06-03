@@ -4,26 +4,26 @@
 
 std::string tokenToString(Token t) {
     switch (t) {
-        case Token::NUM: return "NUM";
-        case Token::VAR: return "VAR";
-        case Token::MAIS: return "MAIS";
-        case Token::MENOS: return "MENOS";
-        case Token::VEZES: return "VEZES";
-        case Token::DIVIDE: return "DIVIDE";
-        case Token::ABREP: return "ABREP";
-        case Token::FECHAP: return "FECHAP";
-        case Token::ABRECO: return "ABRECO";
-        case Token::FECHACO: return "FECHACO";
-        case Token::ABRECH: return "ABRECH";
-        case Token::FECHACH: return "FECHACH";
-        case Token::EOF_TOKEN: return "EOF";
-        default: return "DESCONHECIDO";
+        case Token::NUM: return "\nNUM";
+        case Token::VAR: return "\nVAR";
+        case Token::MAIS: return "\nMAIS";
+        case Token::MENOS: return "\nMENOS";
+        case Token::VEZES: return "\nVEZES";
+        case Token::DIVIDE: return "\nDIVIDE";
+        case Token::ABREP: return "\nABREP";
+        case Token::FECHAP: return "\nFECHAP";
+        case Token::ABRECO: return "\nABRECO";
+        case Token::FECHACO: return "\nFECHACO";
+        case Token::ABRECH: return "\nABRECH";
+        case Token::FECHACH: return "\nFECHACH";
+        case Token::EOF_TOKEN: return "\nEOF";
+        default: return "\nDESCONHECIDO";
     }
 }
 
 int main() {
     std::string nomeArquivo;
-    std::cout << "Digite o nome do arquivo de entrada: (com o .txt)";
+    std::cout << "Digite o nome do arquivo de entrada (com o .txt): ";
     std::cin >> nomeArquivo;
 
     try {

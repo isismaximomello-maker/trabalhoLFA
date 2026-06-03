@@ -28,7 +28,7 @@ class Analisador {
         }
 
         void erroLexico(char encontrado, const std::string esperado){
-            printf("Erro léxico: caractere encontrado: %c \n Era (m) esperado (s): %s\n", encontrado, esperado.c_str());
+            printf("\nErro léxico: caractere encontrado: %c \nEra (m) esperado (s): %s", encontrado, esperado.c_str());
         }
 
 
