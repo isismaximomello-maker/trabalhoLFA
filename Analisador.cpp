@@ -28,28 +28,29 @@ class Analisador {
                 leitura.leProxCaractere();
 
             if (leitura.caractereAtualEsta(DIGITOS))
-                s1();
+                return s1();
             else if (leitura.caractereAtualEsta(LETRAS))
-                s2();
+                return s2();
             else if (leitura.caractereAtualEsta(OPERADORES))
-                s3();
+                return s3();
             else if (leitura.caractereAtualEsta(P1))
-                s4();
+                return s4();
             else if (leitura.caractereAtualEsta(P2))
-                s5();
+                return s5();
             else if (leitura.caractereAtualEsta(Col1))  
-                s6();
+                return s6();
             else if (leitura.caractereAtualEsta(Col2))  
-                s7();
+                return s7();
             else if (leitura.caractereAtualEsta(Cha1))  
-                s8();
+                return s8();
             else if (leitura.caractereAtualEsta(Cha2))  
-                s9();
+                return s9();
             
             else if (leitura.eof())
                 return Token::EOF_TOKEN;
 
             erroLexico(leitura.getCaractereAtual(), DIGITOS + LETRAS + OPERADORES + P1 + P2 + Col1 + Col2 + Cha1 + Cha2);
+            return;
         }
 
         Token s1(){
