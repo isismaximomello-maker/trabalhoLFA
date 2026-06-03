@@ -1,9 +1,16 @@
+
+#ifndef CONSTANTES_H
+#define CONSTANTES_H
+
 #include <string>
 
 enum class Token {
     NUM,
     VAR,
-    OPB,
+    MAIS,
+    MENOS,
+    VEZES,
+    DIVIDE,
     ABREP,
     FECHAP,
     ABRECO,
@@ -13,15 +20,18 @@ enum class Token {
     EOF_TOKEN
 };
 
-const std::string DIGITOS = "0123456789";
-const std::string LETRAS = "abcdefghijklmnopqrstuvwxyz";
-const std::string UNDERLINE = "_";
-const std::string OPERADORES = "+-*/";
-const std::string P1 = "(";
-const std::string P2 = ")";
-const std::string Col1 = "[";
-const std::string Col2 = "]";
-const std::string Cha1 = "{";
-const std::string Cha2 = "}";
-const std::string VAZIOS = " \r\n\t";
-const char EOF_CHAR = '\0';
+
+static const std::string DIGITOS = "0123456789";
+static const std::string LETRAS="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static const std::string UNDERLINE = "_";
+static const std::string OPERADORES = "+-*/";
+static const std::string P1 = "(";
+static const std::string P2 = ")";
+static const std::string Col1 = "[";
+static const std::string Col2 = "]";
+static const std::string Cha1 = "{";
+static const std::string Cha2 = "}";
+static const std::string VAZIOS = " \r\n\t";
+static const char EOF_CHAR = '\0';
+
+#endif

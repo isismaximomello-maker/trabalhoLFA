@@ -19,7 +19,7 @@ class Leitura {
         char caractereAtual = EOF_CHAR; //inicializa com EOF_CHAR para indicar que ainda não leu nenhum caractere
 
     public:
-        bool abrirArquivo(std::string& nomeArquivo){ //& para passar por referência
+        bool abrirArquivo(const std::string& nomeArquivo){ //& para passar por referência
 
             arquivo.open(nomeArquivo);
 
